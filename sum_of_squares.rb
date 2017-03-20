@@ -9,6 +9,8 @@ while i < numbers.length
     i += 1
 end
 
+p numbers
+
 while x < numbers.length
     sum_of_squares_total = sum_of_squares_total + numbers[x]
     x += 1
