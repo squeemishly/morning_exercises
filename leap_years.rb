@@ -1,4 +1,5 @@
-year = 2017
+puts "give me a year "
+year = gets.chomp.to_i
 
 class LeapYear
 
