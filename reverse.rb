@@ -21,11 +21,18 @@ class ReverseText
     @text = text
   end
 
-  def split_text(text)
+  def split_text
     text.split('')
   end
+
+  # def reverse_text(text)
+  #   until text.length == 0
+  #     reverse_split_text << split_text.pop
+  #   end
+  # end
 
 end
 
 reverse = ReverseText.new(text)
+reverse.split_text
 p reverse.text
