@@ -1,8 +1,31 @@
 require 'pry'
 
 class Allergies
+  def initialize
+    @eggs = 1
+    @peanuts = 2
+    @shellfish = 4
+    @strawberries = 8
+    @tomatoes = 16
+    @chocolate = 32
+    @pollen = 62
+    @cats = 128
+  end
+
+  def determine_scores
+    allergens = ["eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"]
+    values = []
+    allergens.each_with_index do |allergen, index|
+      values << 2 ** index
+    end
+    possible_allergies = allergens.zip(values)
+  end
+
+
 
   def value(score)
+    possible_allergies = determine_scores
+    binding.pry
     allergies = []
     while score > 0
       if score >= 128
@@ -23,12 +46,12 @@ class Allergies
       elsif score >= 4
         allergies << "shellfish"
         score -= 4
-      elsif score >= 2
+      elsif score >= @peanuts
         allergies << "peanuts"
-        score -= 2
-      elsif score >= 1
+        score -= @peanuts
+      elsif score >= @eggs
         allergies << "eggs"
-        score -= 1
+        score -= @eggs
       end
     end
     allergies
