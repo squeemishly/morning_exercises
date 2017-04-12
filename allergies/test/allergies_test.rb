@@ -17,6 +17,11 @@ class AllergiesTest < Minitest::Test
     allergy = Allergies.new
     assert_equal ["peanuts", "eggs"], allergy.value(3)
   end
+
+  def test_it_can_show_peanut_and_egg_allergies
+    allergy = Allergies.new
+    assert_equal ["peanuts", "eggs"], allergy.trial(3)
+  end
 end
 
 # Scientists have developed an allergy test that produces a single numeric score that summarizes information about all the allergies a person has.

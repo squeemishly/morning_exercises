@@ -2,26 +2,41 @@ require 'pry'
 
 class Allergies
   def initialize
-    @eggs = 1
-    @peanuts = 2
-    @shellfish = 4
-    @strawberries = 8
-    @tomatoes = 16
-    @chocolate = 32
-    @pollen = 62
-    @cats = 128
+    @allergens = {
+      cats: 128,
+      pollen: 62,
+      chocolate: 32,
+      tomatoes: 16,
+      strawberries: 8,
+      shellfish: 4,
+      peanuts: 2,
+      eggs: 1
+    }
+    # @eggs = 1
+    # @peanuts = 2
+    # @shellfish = 4
+    # @strawberries = 8
+    # @tomatoes = 16
+    # @chocolate = 32
+    # @pollen = 62
+    # @cats = 128
   end
 
-  def determine_scores
-    allergens = ["eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"]
-    values = []
-    allergens.each_with_index do |allergen, index|
-      values << 2 ** index
+  # def determine_scores
+  #   allergens = ["eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"]
+  #   values = []
+  #   allergens.each_with_index do |allergen, index|
+  #     values << 2 ** index
+  #   end
+  #   possible_allergies = allergens.zip(values)
+  # end
+  #
+
+  def trial(score)
+    allergens.each do |allergy, value|
+      binding.pry
     end
-    possible_allergies = allergens.zip(values)
   end
-
-
 
   def value(score)
     possible_allergies = determine_scores
@@ -46,12 +61,12 @@ class Allergies
       elsif score >= 4
         allergies << "shellfish"
         score -= 4
-      elsif score >= @peanuts
+      elsif score >= 2
         allergies << "peanuts"
-        score -= @peanuts
-      elsif score >= @eggs
+        score -= 2
+      elsif score >= 1
         allergies << "eggs"
-        score -= @eggs
+        score -= 1
       end
     end
     allergies
